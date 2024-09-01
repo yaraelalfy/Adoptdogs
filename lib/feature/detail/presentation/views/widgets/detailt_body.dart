@@ -20,12 +20,12 @@ class detail_body extends StatelessWidget {
             onTap: () {
               // context.read<AppCubit>().choosenHeart();
               // context.read<AppCubit>().isavailable();
-              context.read<AppCubit>().toggleFavorite(dogName);
+              context.read<FavouriteCubit>().toggleFavorite(dogName);
 
             },
-            child: BlocBuilder<AppCubit, AppState>(
+            child: BlocBuilder<FavouriteCubit, FavouriteState>(
               builder: (context, state) {
-                bool isFavorite = context.read<AppCubit>().isFavorite(dogName);
+                bool isFavorite = context.read<FavouriteCubit>().isFavorite(dogName);
 
                 return Icon(
                   Icons.favorite,

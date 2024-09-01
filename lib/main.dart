@@ -1,3 +1,4 @@
+import 'package:animals/feature/DailyTask/presentation/manager/cubit.dart';
 import 'package:animals/feature/detail/presentation/manager/cubit.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
@@ -18,8 +19,11 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  BlocProvider(
-      create: (context)=>AppCubit(),
+    return  MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => FavouriteCubit()),
+        BlocProvider(create: (context) => TaskCubit()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),

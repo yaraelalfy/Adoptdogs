@@ -1,34 +1,33 @@
-import 'package:animals/core/styles.dart';
-import 'package:animals/feature/Advice/presentation/views/widgets/AppBarShape.dart';
-import 'package:animals/feature/DailyTask/presentation/views/widgets/body_daily_task.dart';
-import 'package:animals/feature/home/presentation/views/drawer_screen.dart';
+import 'package:animals/feature/DailyTask/presentation/views/widgets/full_task.dart';
+import 'package:animals/feature/DailyTask/presentation/views/widgets/task_list.dart';
+import 'package:animals/feature/detail/presentation/manager/cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:animals/feature/detail/presentation/manager/state.dart'; // Import AppCubit
+
+// void main() {
+//   runApp(
+//     MultiBlocProvider(
+//       providers: [
+//         BlocProvider(
+//           create: (_) => AppCubit(),
+//         ),
+//       ],
+//       child: MyApp(),
+//     ),
+//   );
+// }
 
 class MainTasks extends StatelessWidget {
-  const MainTasks({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar:AppBar(
-      elevation:0,
-      flexibleSpace:AppBarShape(),
-      title: Text(
-          "Pet Tasks",
-          style: Fonts.appbar
+    return MaterialApp(debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: FullTasks(),
       ),
-      centerTitle: true,
-
-      actions: [
-        IconButton(
-          icon: Icon(Icons.pets, color: Colors.white),
-          onPressed: () {
-          },
-        ),
-      ],
-    ),
-    drawer: Drawer(child: DrawerScreen(),),
-    body:BodyDailyTask(),
     );
   }
 }
+
+
+

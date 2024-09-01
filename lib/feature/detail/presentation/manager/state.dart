@@ -1,4 +1,4 @@
-abstract class AppState{}
-class ChoosenFavouriteColor extends AppState{}
-class AnimalsAdded extends AppState{}
-class InitialState extends AppState{}
+abstract class FavouriteState{}
+class ChoosenFavouriteColor extends FavouriteState{}
+class AnimalsAdded extends FavouriteState{}
+class InitialState extends FavouriteState{}
