@@ -1,7 +1,7 @@
 import 'package:animals/core/styles.dart';
 import 'package:animals/feature/Advice/presentation/views/widgets/AppBarShape.dart';
 import 'package:animals/feature/DailyTask/presentation/views/widgets/body_daily_task.dart';
-import 'package:animals/feature/home/presentation/views/drawer_screen.dart';
+import 'package:animals/drawer_screen.dart';
 import 'package:flutter/material.dart';
 
 class FullTasks extends StatelessWidget {
@@ -9,7 +9,7 @@ class FullTasks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.white,
       appBar:AppBar(
       elevation:0,
       flexibleSpace:AppBarShape(),

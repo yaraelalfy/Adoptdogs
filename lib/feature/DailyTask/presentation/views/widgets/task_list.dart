@@ -4,14 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:animals/feature/DailyTask/data/Task.dart';
 
-class TaskList extends StatefulWidget {
+class TaskList extends StatelessWidget {
   const TaskList({super.key});
 
-  @override
-  State<TaskList> createState() => _TaskListState();
-}
-
-class _TaskListState extends State<TaskList> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TaskCubit, TaskState>(
@@ -22,13 +17,18 @@ class _TaskListState extends State<TaskList> {
           itemCount: Tasks.length,
           itemBuilder: (context, index) {
             final task = Tasks[index];
-            final isDone = appCubit.isDone(task.name); // Use AppCubit to check if the task is done
+            final isDone = appCubit.isDone(task.name);
 
             return CheckboxListTile(
-              title: Text(task.name),
+              title: Row(
+                children: [
+                  Text(task.name),
+                  //Icon(task.icon)
+                ],
+              ),
               value: isDone,
               onChanged: (value) {
-                appCubit.toggleDone(task.name); // Use AppCubit to toggle done status
+                appCubit.toggleDone(task.name);
               },
             );
           },
@@ -37,8 +37,6 @@ class _TaskListState extends State<TaskList> {
     );
   }
 }
-
-
 
 /*import 'package:animals/feature/DailyTask/data/Task.dart';
 import 'package:flutter/material.dart';

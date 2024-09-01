@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class Fonts {
-  static const textStyle1 = TextStyle(
-      fontWeight: FontWeight.bold,
-      color: Colors.black,
-      fontFamily: "Schyler",
-      fontSize: 26);
+  static const textStyle1 = TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontFamily: "Schyler", fontSize: 26);
 
   static const textStyle2 = TextStyle(color: Color.fromARGB(179, 0, 0, 0), fontSize: 18);
 

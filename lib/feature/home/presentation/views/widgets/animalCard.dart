@@ -89,7 +89,7 @@ class AnimalCard extends StatelessWidget {
             SizedBox(
               width: 20,
             ),
-            Spacer(),
+            //Spacer(),
             InkWell(
               onTap: () {
                 Navigator.push(context,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/about.dart';
-import 'widgets/contact.dart';
+import 'feature/home/presentation/views/widgets/about.dart';
+import 'feature/home/presentation/views/widgets/contact.dart';
 
 class DrawerScreen extends StatelessWidget {
   const DrawerScreen({super.key});

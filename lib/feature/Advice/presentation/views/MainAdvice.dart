@@ -1,6 +1,6 @@
 import 'package:animals/core/styles.dart';
 import 'package:animals/feature/Advice/presentation/views/widgets/list_advice.dart';
-import 'package:animals/feature/home/presentation/views/drawer_screen.dart';
+import 'package:animals/drawer_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/AppBarShape.dart';

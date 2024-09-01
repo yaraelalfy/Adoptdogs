@@ -1,17 +1,14 @@
 import 'package:animals/core/styles.dart';
 import 'package:flutter/material.dart';
 
-class fact_detail extends StatefulWidget {
-  const fact_detail({super.key, required this.dogName, required this.imagePath, required this.type, required this.age});
+class fact_detail extends StatelessWidget {
+   fact_detail({super.key, required this.dogName, required this.imagePath, required this.type, required this.age});
   final String dogName,imagePath,type,age;
 
-  @override
-  State<fact_detail> createState() => _fact_detailState();
-}
-
-class _fact_detailState extends State<fact_detail> {
   bool choosen = false;
+
   List<String> images = [];
+
   List<String> name = [];
 
   @override
@@ -23,7 +20,7 @@ class _fact_detailState extends State<fact_detail> {
           Row(
             children: [
              // Text("  Sparky",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
-              Text("${widget.dogName} ",style: Fonts.first,),
+              Text("$dogName ",style: Fonts.first,),
               /*InkWell(onTap: () {
                 setState(() {
                   choosen = true;
@@ -43,9 +40,9 @@ class _fact_detailState extends State<fact_detail> {
           ),
           Row(
             children: [
-              Text("${widget.type} ",style: Fonts.second),
+              Text("$type ",style: Fonts.second),
               Spacer(),
-              Text("${widget.age}  month ",style: Fonts.second),
+              Text("$age  month ",style: Fonts.second),
             ],
           ),
           Row(children: [

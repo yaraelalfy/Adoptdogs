@@ -1,5 +1,5 @@
 import 'package:animals/core/styles.dart';
-import 'package:animals/feature/home/presentation/views/navigationBar.dart';
+import 'package:animals/navigationBar.dart';
 import 'package:flutter/material.dart';
 
 class ContinueToApp extends StatelessWidget {

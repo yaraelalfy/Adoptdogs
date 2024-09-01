@@ -1,7 +1,7 @@
 import 'package:animals/feature/home/presentation/views/widgets/animalListView.dart';
 import 'package:flutter/material.dart';
 
-import 'drawer_screen.dart';
+import '../../../../drawer_screen.dart';
 import 'widgets/random_fact.dart';
 
 class MainHome extends StatelessWidget {
