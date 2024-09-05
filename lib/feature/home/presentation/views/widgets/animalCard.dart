@@ -1,21 +1,22 @@
-import 'package:animals/core/styles.dart';
-import 'package:animals/feature/detail/presentation/manager/cubit.dart';
-import 'package:animals/feature/detail/presentation/views/main_details.dart';
+import 'package:animals/core/styles/styles.dart';
+import 'package:animals/feature/detail/presentation/views/main_detail.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'image_bigger.dart';
 
 class AnimalCard extends StatelessWidget {
-  AnimalCard({super.key, required this.imagePath, required this.dogName, required this.dogAge, required this.dogType, required this.choosen});
-  final String imagePath,dogName,dogAge, dogType;
+  final String imagePath, dogType, dogBarking, dogEnergy , minLife,maxLife,goodWStrangers;
   final bool choosen;
+
+  const AnimalCard({super.key, required this.imagePath, required this.dogType, required this.dogBarking, required this.dogEnergy, required this.minLife, required this.maxLife, required this.goodWStrangers, required this.choosen});
+
+
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 140,
+      height: 170,
       child: Container(
-        margin: EdgeInsets.only(top: 30, left: 15, right: 15),
+        margin: const EdgeInsets.only(top: 30, left: 15, right: 15),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(30),
@@ -26,96 +27,93 @@ class AnimalCard extends StatelessWidget {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3),
             ),
           ],
         ),
         child: Row(
           children: [
             Container(
-              width: 140,
-              margin: EdgeInsets.all(13),
+              width: 90,
+              margin: const EdgeInsets.all(13),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(500),
+              ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(30),
                 child: InkWell(
                   onTap: () {
                     image_bigger(context, imagePath);
                   },
-                  child: Container(
-                    child: Image.asset(
-                      "$imagePath",
-                      fit: BoxFit.contain,
+                  // child: Image.asset(
+                  //   imagePath,
+                  //   fit: BoxFit.contain,
+                  // ),
+                  child: Image.network(
+                    imagePath,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10, left: 10),
+                    child: Text(
+                      dogType,
+                      softWrap: true,
+                      style: Fonts.dogName,
                     ),
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 6, left: 10),
+                    child: Text(
+                      "$dogBarking  PlayFulness",
+                      softWrap: true,
+                      style: Fonts.dogType,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      left: 10,
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.energy_savings_leaf_outlined,
+                          color: Colors.deepOrange[200],
+                        ),
+                        Text(
+                          " $dogEnergy powerful",
+                          softWrap: true,
+                          style: Fonts.dogAge,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(500),
-              ),
             ),
-            Column(crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 10),
-                  child: Text(
-                    "$dogName",
-                    style: Fonts.dogName,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 6, left: 10),
-                  child: Text(
-                    "$dogType",
-                    style: Fonts.dogType,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 10),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.date_range_sharp,
-                        color: Colors.deepOrange[200],
-                      ),
-                      Text(
-                        " $dogAge months",
-                        style: Fonts.dogAge,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            const SizedBox(
+              width: 10,
             ),
-            SizedBox(
-              width: 20,
-            ),
-            //Spacer(),
+            // Move the icon here to keep it on the right
             InkWell(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) {
-                      return Details(dogName: dogName, imagePath: imagePath, type: dogType, age: dogAge,);
-                    }));
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  //return DetailBody(dogName: dogType, imagePath: imagePath, minLife: minLife,maxLife: maxLife,goodWS: goodWStrangers,);
+                  return MainDetails(dogName: dogType, imagePath: imagePath, minLife: minLife,maxLife: maxLife,goodWS: goodWStrangers, );
+                }));
               },
-              child: Icon(
-                  Icons.info_rounded,size: 28,
-                  color:Colors.orange
+              child: const Padding(
+                padding: EdgeInsets.only(right: 15),
+                child: Icon(Icons.info_rounded, size: 28, color: Colors.orange),
               ),
-            )
-            /*Padding(
-                    padding:const EdgeInsets.only(bottom: 70, left: 30, top: 30),
-                    child: InkWell(
-                      onTap: () {
-                        context.read<AppCubit>().choosenHeart();
-                      },
-                      child: Icon(
-                        Icons.favorite,
-                        color: context.read<AppCubit>().heart
-                            ? Colors.orange
-                            : Color.fromARGB(129, 0, 0, 0),
-                      ),
-                    ),
-                  )*/
+            ),
           ],
         ),
       ),

@@ -1,5 +1,5 @@
-import 'package:animals/core/styles.dart';
-import 'package:animals/feature/Advice/presentation/views/widgets/AppBarShape.dart';
+import 'package:animals/core/styles/styles.dart';
+import 'package:animals/core/styles/AppBarShape.dart';
 import 'package:animals/feature/DailyTask/presentation/views/widgets/body_daily_task.dart';
 import 'package:animals/drawer_screen.dart';
 import 'package:flutter/material.dart';

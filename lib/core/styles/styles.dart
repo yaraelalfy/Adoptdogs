@@ -19,7 +19,7 @@ abstract class Fonts {
 
   static const second = TextStyle(fontWeight: FontWeight.bold,fontSize: 17,color: Colors.black38);
 
-  static const third = TextStyle(color:Color.fromARGB(255, 114, 108, 108));
+  static const third = TextStyle(color: Colors.black38,fontWeight: FontWeight.bold);
 
   /*static const successText = TextStyle(
       color: Colors.green, fontSize: 20, fontWeight: FontWeight.bold);*/
@@ -27,9 +27,12 @@ abstract class Fonts {
     shadows: [Shadow(blurRadius: 5.0, color: Colors.greenAccent, offset: Offset(1, 1),),],);
 
   static const appbar = TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold,);
+  static const appbar2 = TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold,);
   static const location = TextStyle(fontSize:17, color: Colors.white, fontWeight: FontWeight.w700,);
   static const Tasks = TextStyle(
       color: Colors.black, fontWeight: FontWeight.bold, fontSize:25,decoration: TextDecoration.underline,
       shadows: [Shadow(blurRadius: 5.0, color: Color.fromARGB(255, 94, 87, 87), offset: Offset(2, 2),)]);
+  static const locations = TextStyle(color: Colors.black,fontSize:15,fontWeight: FontWeight.bold,decoration: TextDecoration.underline,
+    shadows: [Shadow(blurRadius: 5.0, color: Colors.grey, offset: Offset(1, 1),),],);
 
 }

@@ -1,9 +1,9 @@
-import 'package:animals/core/styles.dart';
+import 'package:animals/core/styles/styles.dart';
 import 'package:animals/feature/Advice/presentation/views/widgets/list_advice.dart';
 import 'package:animals/drawer_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/AppBarShape.dart';
+import '../../../../core/styles/AppBarShape.dart';
 
 class MainAdvice extends StatelessWidget {
   const MainAdvice({super.key});

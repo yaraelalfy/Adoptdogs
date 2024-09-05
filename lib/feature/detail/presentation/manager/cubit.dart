@@ -5,7 +5,6 @@ import 'dart:convert';
 
 class FavouriteCubit extends Cubit<FavouriteState> {
   Map<String, bool> favorites = {};
-  Map<String, bool> done = {};
 
   FavouriteCubit() : super(InitialState()) {
     loadPreferences();

@@ -1,35 +1,28 @@
 import 'package:animals/feature/Advice/presentation/views/MainAdvice.dart';
-import 'package:animals/feature/Advice/presentation/views/widgets/adv2.dart';
 import 'package:animals/feature/DailyTask/presentation/views/MainTasks.dart';
-import 'package:animals/feature/DailyTask/presentation/views/widgets/body_daily_task.dart';
 import 'package:animals/feature/home/presentation/views/mainHome.dart';
+import 'package:animals/feature/random_fact_display/view/random_fact_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class navigationBar extends StatefulWidget {
-  @override
-  State<navigationBar> createState() => _HomeState();
-}
-
-class _HomeState extends State<navigationBar> {
-  int _selected=0;
-  void _Tapped(int index) {
-    setState(() {
-      _selected= index;
-    });
-  }
-  int value = 0;
+class navigationBar extends StatelessWidget {
   List NavigationScreen = [
     MainHome(),
     MainTasks(),
-    pageview(),
+    RandomFactScreen(),
     MainAdvice(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selected,
-        onTap: _Tapped,
+      bottomNavigationBar: BlocBuilder<NavigationCubit, int>(
+        builder: (context, selectedIndex) {
+      return BottomNavigationBar(
+        currentIndex: selectedIndex,
+        onTap: (index) {
+          context.read<NavigationCubit>().changeTab(index);
+        },
         showSelectedLabels: true,
         showUnselectedLabels: false,
         backgroundColor: Colors.transparent,
@@ -41,9 +34,21 @@ class _HomeState extends State<navigationBar> {
           BottomNavigationBarItem(icon: Icon(Icons.tips_and_updates,),label: 'Advice',),
         ],
         selectedItemColor:Color.fromARGB(143, 255, 86, 34),
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: Colors.grey,);
+      }),
+      body: BlocBuilder<NavigationCubit, int>(
+        builder: (context, selectedIndex) {
+          return NavigationScreen[selectedIndex];
+        },
       ),
-      body: NavigationScreen[_selected],
     );
+  }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+class NavigationCubit extends Cubit<int> {
+  NavigationCubit() : super(0);
+
+  void changeTab(int index) {
+    emit(index);
   }
 }

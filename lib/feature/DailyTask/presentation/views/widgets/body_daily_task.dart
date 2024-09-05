@@ -1,4 +1,4 @@
-import 'package:animals/core/styles.dart';
+import 'package:animals/core/styles/styles.dart';
 import 'package:animals/feature/DailyTask/presentation/views/widgets/task_list.dart';
 import 'package:flutter/material.dart';
 class BodyDailyTask extends StatelessWidget {

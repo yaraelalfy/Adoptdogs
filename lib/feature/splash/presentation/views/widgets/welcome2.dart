@@ -1,4 +1,4 @@
-import 'package:animals/core/styles.dart';
+import 'package:animals/core/styles/styles.dart';
 import 'package:flutter/material.dart';
 
 class Welcome2 extends StatelessWidget {

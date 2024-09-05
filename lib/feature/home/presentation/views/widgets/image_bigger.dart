@@ -5,8 +5,8 @@ void image_bigger(BuildContext context, String imagePath) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        contentPadding: EdgeInsets.all(7),
-        content: Image.asset(
+        contentPadding: EdgeInsets.all(0),
+        content: Image.network(
           imagePath,
           fit: BoxFit.cover,
         ),
